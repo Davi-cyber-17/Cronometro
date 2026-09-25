@@ -1,0 +1,749 @@
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   VARIÁVEIS
+========================================== */
+
+:root {
+    --neon: #00f5ff;
+    --green: #00ff88;
+    --red: #ff3158;
+    --bg: #030712;
+}
+
+
+/* ==========================================
+   BODY
+========================================== */
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: clamp(12px, 3vw, 40px);
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #063642 0%,
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 80%,
+            #101b42 0%,
+            transparent 35%
+        ),
+        var(--bg);
+
+    overflow-x: hidden;
+}
+
+
+/* ==========================================
+   GRADE DE FUNDO
+========================================== */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 245, 255, 0.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0, 245, 255, 0.035) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        clamp(25px, 4vw, 45px)
+        clamp(25px, 4vw, 45px);
+
+    pointer-events: none;
+}
+
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.container {
+    position: relative;
+
+    width: min(100%, 680px);
+
+    padding:
+        clamp(25px, 5vw, 50px)
+        clamp(18px, 5vw, 45px);
+
+    text-align: center;
+
+    background: rgba(4, 12, 25, 0.82);
+
+    border:
+        1px solid
+        rgba(0, 245, 255, 0.25);
+
+    border-radius:
+        clamp(20px, 4vw, 32px);
+
+    box-shadow:
+        0 0 30px rgba(0, 245, 255, 0.08),
+        0 30px 80px rgba(0, 0, 0, 0.65);
+
+    backdrop-filter: blur(20px);
+
+    overflow: hidden;
+}
+
+
+/* Linha superior */
+
+.container::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 10%;
+
+    width: 80%;
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--neon),
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px var(--neon);
+}
+
+
+/* ==========================================
+   TÍTULO
+========================================== */
+
+h1 {
+    margin-bottom:
+        clamp(25px, 5vw, 40px);
+
+    font-size:
+        clamp(24px, 5vw, 36px);
+
+    font-weight: 700;
+
+    letter-spacing:
+        clamp(2px, 0.7vw, 5px);
+
+    text-transform: uppercase;
+
+    color: var(--neon);
+
+    text-shadow:
+        0 0 10px rgba(0, 245, 255, 0.7),
+        0 0 25px rgba(0, 245, 255, 0.35);
+}
+
+
+/* ==========================================
+   TEMPO
+========================================== */
+
+#tempo {
+    margin-bottom:
+        clamp(30px, 6vw, 50px);
+
+    font-family: "Courier New", monospace;
+
+    font-size:
+        clamp(34px, 9vw, 70px);
+
+    font-weight: bold;
+
+    letter-spacing:
+        clamp(1px, 0.5vw, 5px);
+
+    color: #e9feff;
+
+    text-shadow:
+        0 0 8px rgba(0, 245, 255, 0.8),
+        0 0 25px rgba(0, 245, 255, 0.35);
+
+    white-space: nowrap;
+
+    transition:
+        opacity 0.15s ease;
+}
+
+
+#tempo span {
+    font-size: 0.55em;
+
+    color: var(--neon);
+
+    text-shadow:
+        0 0 10px var(--neon);
+}
+
+
+/* ==========================================
+   BOTÃO PRINCIPAL
+========================================== */
+
+.botao-gigante {
+    position: relative;
+
+    width: min(280px, 62vw);
+    height: min(280px, 62vw);
+
+    min-width: 170px;
+    min-height: 170px;
+
+    border-radius: 50%;
+
+    border:
+        clamp(2px, 0.5vw, 4px)
+        solid
+        var(--neon);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0, 245, 255, 0.16),
+            rgba(0, 20, 35, 0.95) 65%
+        );
+
+    color: var(--neon);
+
+    font-size:
+        clamp(20px, 5vw, 32px);
+
+    font-weight: 800;
+
+    letter-spacing:
+        clamp(1px, 0.5vw, 3px);
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 20px rgba(0, 245, 255, 0.35),
+        0 0 60px rgba(0, 245, 255, 0.12),
+        inset 0 0 40px rgba(0, 245, 255, 0.08);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* Anel externo */
+
+.botao-gigante::before {
+    content: "";
+
+    position: absolute;
+
+    inset:
+        clamp(-12px, -2vw, -8px);
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(0, 245, 255, 0.3);
+
+    box-shadow:
+        0 0 20px
+        rgba(0, 245, 255, 0.15);
+}
+
+
+/* Anel giratório */
+
+.botao-gigante::after {
+    content: "";
+
+    position: absolute;
+
+    inset:
+        clamp(-25px, -4vw, -15px);
+
+    border-radius: 50%;
+
+    border:
+        1px dashed
+        rgba(0, 245, 255, 0.18);
+
+    animation:
+        girar 15s linear infinite;
+}
+
+
+@keyframes girar {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* Hover */
+
+.botao-gigante:hover {
+
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 30px rgba(0, 245, 255, 0.55),
+        0 0 80px rgba(0, 245, 255, 0.2),
+        inset 0 0 50px rgba(0, 245, 255, 0.12);
+}
+
+
+/* Clique */
+
+.botao-gigante:active {
+    transform: scale(0.96);
+}
+
+
+/* ==========================================
+   ESTADO RODANDO
+========================================== */
+
+.botao-gigante.pausado {
+
+    color: var(--red);
+
+    border-color: var(--red);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 49, 88, 0.16),
+            rgba(35, 5, 15, 0.95) 65%
+        );
+
+    box-shadow:
+        0 0 25px rgba(255, 49, 88, 0.45),
+        0 0 70px rgba(255, 49, 88, 0.15),
+        inset 0 0 40px rgba(255, 49, 88, 0.08);
+}
+
+
+/* ==========================================
+   BOTÕES SECUNDÁRIOS
+========================================== */
+
+.botoes {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap:
+        clamp(8px, 3vw, 18px);
+
+    margin-top:
+        clamp(30px, 5vw, 45px);
+}
+
+
+.botoes button {
+
+    min-width: 120px;
+
+    padding:
+        clamp(11px, 2vw, 15px)
+        clamp(15px, 3vw, 25px);
+
+    border:
+        1px solid
+        rgba(0, 245, 255, 0.3);
+
+    border-radius: 10px;
+
+    background:
+        rgba(0, 245, 255, 0.05);
+
+    color: #dffcff;
+
+    font-size:
+        clamp(12px, 2vw, 15px);
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.botoes button:hover {
+
+    background:
+        rgba(0, 245, 255, 0.12);
+
+    border-color:
+        var(--neon);
+
+    color:
+        var(--neon);
+
+    box-shadow:
+        0 0 15px
+        rgba(0, 245, 255, 0.2);
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* Reset */
+
+#resetar {
+    border-color:
+        rgba(255, 49, 88, 0.3);
+}
+
+
+#resetar:hover {
+
+    border-color:
+        var(--red);
+
+    color:
+        var(--red);
+
+    box-shadow:
+        0 0 15px
+        rgba(255, 49, 88, 0.2);
+}
+
+
+/* Volta */
+
+#volta {
+    border-color:
+        rgba(0, 255, 136, 0.3);
+}
+
+
+#volta:hover {
+
+    border-color:
+        var(--green);
+
+    color:
+        var(--green);
+
+    box-shadow:
+        0 0 15px
+        rgba(0, 255, 136, 0.2);
+}
+
+
+/* ==========================================
+   VOLTAS
+========================================== */
+
+.voltas {
+
+    margin-top:
+        clamp(30px, 5vw, 45px);
+
+    padding-top: 20px;
+
+    text-align: left;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+}
+
+
+.voltas h2 {
+
+    margin-bottom: 15px;
+
+    font-size:
+        clamp(14px, 2.5vw, 17px);
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #8ea9b3;
+}
+
+
+#listaVoltas {
+
+    list-style: none;
+
+    max-height:
+        clamp(120px, 25vh, 180px);
+
+    overflow-y: auto;
+}
+
+
+#listaVoltas li {
+
+    padding: 11px 14px;
+
+    margin-bottom: 7px;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    border-left:
+        2px solid
+        var(--neon);
+
+    border-radius: 6px;
+
+    color: #c8e7eb;
+
+    font-family: monospace;
+
+    font-size:
+        clamp(12px, 2vw, 15px);
+}
+
+
+/* Scroll */
+
+#listaVoltas::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+#listaVoltas::-webkit-scrollbar-thumb {
+
+    background:
+        var(--neon);
+
+    border-radius: 10px;
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 768px) {
+
+    body {
+
+        align-items: flex-start;
+
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+
+    .container {
+
+        width:
+            min(94%, 620px);
+    }
+
+}
+
+
+/* ==========================================
+   CELULAR
+========================================== */
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 12px;
+    }
+
+
+    .container {
+
+        width: 100%;
+
+        padding:
+            25px 15px 30px;
+    }
+
+
+    h1 {
+        margin-bottom: 25px;
+    }
+
+
+    #tempo {
+
+        margin-bottom: 35px;
+
+        font-size:
+            clamp(30px, 10vw, 45px);
+    }
+
+
+    .botao-gigante {
+
+        width:
+            min(230px, 65vw);
+
+        height:
+            min(230px, 65vw);
+
+        min-width: 170px;
+        min-height: 170px;
+    }
+
+
+    .botoes {
+
+        gap: 10px;
+    }
+
+
+    .botoes button {
+
+        flex: 1;
+
+        min-width: 0;
+    }
+
+
+    .voltas {
+
+        margin-top: 30px;
+    }
+
+}
+
+
+/* ==========================================
+   CELULARES PEQUENOS
+========================================== */
+
+@media (max-width: 350px) {
+
+    .container {
+
+        padding:
+            22px 10px 25px;
+    }
+
+
+    #tempo {
+
+        font-size: 28px;
+
+        letter-spacing: 0;
+    }
+
+
+    .botao-gigante {
+
+        width: 175px;
+        height: 175px;
+
+        min-width: 175px;
+        min-height: 175px;
+
+        font-size: 20px;
+    }
+
+
+    .botoes button {
+
+        padding:
+            10px 8px;
+
+        font-size: 11px;
+    }
+
+}
+
+
+/* ==========================================
+   TELAS GRANDES
+========================================== */
+
+@media (min-width: 1400px) {
+
+    .container {
+        max-width: 720px;
+    }
+
+
+    .botao-gigante {
+
+        width: 300px;
+        height: 300px;
+    }
+
+}
+
+
+/* ==========================================
+   REDUZIR ANIMAÇÕES
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+    }
+
+}

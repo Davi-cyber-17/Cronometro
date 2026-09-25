@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Cronômetro digital moderno e responsivo"
+    >
+
+    <meta
+        name="theme-color"
+        content="#030712"
+    >
+
+    <title>Chrono X</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>⏱ Chrono X</h1>
+
+        <div
+            id="tempo"
+            aria-label="Tempo do cronômetro"
+        >
+            00:00:00<span>.00</span>
+        </div>
+
+        <button
+            id="botaoPrincipal"
+            class="botao-gigante"
+            type="button"
+            aria-label="Iniciar cronômetro"
+        >
+            INICIAR
+        </button>
+
+        <div class="botoes">
+
+            <button
+                id="resetar"
+                type="button"
+            >
+                ↻ Resetar
+            </button>
+
+            <button
+                id="volta"
+                type="button"
+            >
+                🏁 Volta
+            </button>
+
+        </div>
+
+        <section class="voltas">
+
+            <h2>Voltas</h2>
+
+            <ul id="listaVoltas"></ul>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
